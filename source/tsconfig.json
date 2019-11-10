@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "watch": true,
+        "outDir": "../build",
+        "strictFunctionTypes": false,
+        "lib": [
+            "dom",
+            "es2018"
+        ]
+    },
+}

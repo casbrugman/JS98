@@ -1,0 +1,533 @@
+@font-face {
+  font-family: pixel;
+  src: url(res/px_sans_nouveaux.ttf);
+}
+
+@font-face {
+  font-family: DOS;
+  src: url(res/Perfect_DOS_VGA_437.ttf);
+}
+
+html, body {
+  /* zoom: 1.5;
+  -moz-transform: scale(1.5);
+  -moz-transform-origin: 0 0; */
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+#JS98 {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+
+  overflow: hidden;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+
+  font-family: 'Pixel';
+  color: white;
+  font-size: 8px;
+  -moz-user-select: none;
+  user-select: none;
+
+  background-image: linear-gradient(to bottom right, rgb(255, 0, 255), rgb(0, 255, 255));
+  background-size: cover;
+}
+
+#bluescreen {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: all;
+  z-index: 100;
+  background-color: blue;
+  font-family: DOS;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+#bluescreen span {
+  background-color: white;
+  color: blue;
+}
+
+#bluescreen p {
+  width: 75%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+button {
+  font-family: 'Pixel';
+  font-size: 8px;
+  background-color: silver;
+  display: inline-block;
+  margin: 2px 1px 2px 1px;
+  margin-right: 2px;
+  padding: 0;
+  border-top: solid 1px white;
+  border-left: solid 1px white;
+  border-bottom: solid 1px grey;
+  border-right: solid 1px grey;
+  box-shadow: 0 1px black, 1px 0 black, 1px 1px black;
+  cursor: pointer;
+}
+
+button:active {
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-bottom: solid 1px rgb(220, 220, 220);
+  border-right: solid 1px rgb(220, 220, 220);
+  box-shadow: inset 1px 1px grey, 0 1px white, 1px 0 white, 1px 1px white;
+}
+
+button:focus {
+  outline: 0;
+}
+
+#os {
+  visibility: hidden;
+}
+
+#boot {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: black;
+}
+
+#log {
+  position: absolute;
+}
+
+#boot img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#JS98iconLayer {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+}
+
+#JS98windowLayer {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 97;
+}
+
+#JS98canvas {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+#taskbar {
+  position: absolute;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background-color: silver;
+  z-index: 98;
+  border-top: solid 1px silver;
+  border-left: solid 1px silver;
+  border-bottom: solid 1px grey;
+  border-right: solid 1px grey;
+  box-shadow: inset 1px 1px white;
+  color: black;
+  font-size: 10px;
+}
+
+#tray {
+  float: right;
+  margin: 3px 2px 2px 3px;
+  height: 23px;
+  width: auto;
+  border-top: solid 1px grey;
+  border-left: solid 1px grey;
+  border-bottom: solid 1px white;
+  border-right: solid 1px white;
+  text-align: right;
+}
+
+#time {
+  display: block;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+
+/* icons */
+.JS98icon {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid transparent;
+  pointer-events: none;
+}
+
+.JS98icon img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.JS98icon span {
+  color: transparent;
+  text-shadow: 0px -1px white, 0px 0px #0500ff;
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
+  cursor: pointer;
+  line-height: 13px;
+  border: solid 1px transparent;
+  vertical-align: top;
+  pointer-events: all;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.JS98icon:hover {
+  z-index: 96;
+}
+
+.JS98icon_selected {
+  z-index: 95;
+}
+
+.JS98icon_selected:not(.JS98icon_grab) img {
+  filter: brightness(.5) sepia(100%) hue-rotate(180deg) saturate(8);
+}
+
+.JS98icon_selected span {
+  text-shadow: 0px -1px white;
+  background-color: rgb(0, 156, 255);
+}
+
+.JS98icon_grab {
+  transform: translate(-3px, -3px);
+  filter: drop-shadow(3px 3px rgba(0, 6, 57, 0.66));
+}
+
+.JS98icon_clicked span {
+  border: dotted 1px black;
+}
+
+/* windows */
+.JS98window {
+  pointer-events: all;
+  position: absolute;
+  background-color: silver;
+  padding: 3px 2px 2px 3px;
+  border-top: solid 1px silver;
+  border-left: solid 1px silver;
+  border-bottom: solid 1px grey;
+  border-right: solid 1px grey;
+  box-shadow: inset 1px 1px white, 0 1px black, 1px 0 black, 1px 1px black;
+}
+
+.JS98window iframe,div {
+  position: absolute;
+  width: calc(100% - 7px);
+  height: calc(100% - 28px);
+  border-width: 1px;
+}
+
+.JS98window header {
+  height: 19px;
+  background-image: linear-gradient(to right, rgb(100, 0, 100), rgb(0, 100, 100));
+  margin-bottom: 2px;
+  padding-right: 1px;
+}
+
+.JS98window header button {
+  float: right;
+  width: 14px;
+  height: 14px;
+}
+
+.JS98window header button img {
+  width: 10px;
+  height: 10px;
+  margin-top: -6px;
+  margin-left: 1px;
+}
+
+.JS98window header img {
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-left: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.JS98window header.JS98active {
+  background-image: linear-gradient(to right, rgb(255, 0, 255), rgb(0, 255, 255));
+}
+
+.message {
+  text-align: center;
+  padding-bottom: 20px;
+  height: 500px;
+  color: black;
+}
+
+.message img {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  vertical-align: middle;
+  height: 50px;
+  filter: drop-shadow(3px 3px rgba(55, 55, 55, 0.66));
+}
+
+.message p {
+  margin-top: 11px;
+  margin-right: 20px;
+  margin-left: 10px;
+  width: calc(100% - 90px);
+  text-align: center;
+  vertical-align: middle;
+  float: right;
+}
+
+.message button {
+  width: 70px;
+  height: 20px;
+  margin-bottom: 50px;
+}
+
+#dock {
+  display: flex;
+}
+
+.tab {
+  height: 22px;
+  max-width: 150px;
+  width: auto;
+  flex: 1;
+  margin: 3px 1px 3px 3px;
+  border-top: solid 1px white;
+  border-left: solid 1px white;
+  border-bottom: solid 1px grey;
+  border-right: solid 1px grey;
+  box-shadow: 0 1px black, 1px 0 black, 1px 1px black;
+}
+
+.tab_open {
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-bottom: solid 1px rgb(220, 220, 220);
+  border-right: solid 1px rgb(220, 220, 220);
+  box-shadow: inset 1px 1px grey, 0 1px white, 1px 0 white, 1px 1px white;
+}
+
+.tab img {
+  position: relative;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.tab span {
+  position: relative;
+  top: 1px;
+}
+
+/* resizers */
+.JS98resizer {
+  position: absolute;
+  top: auto;
+  right: auto;
+  left: auto;
+}
+
+.JS98resizer-n {
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 6px;
+  cursor: n-resize;
+}
+
+.JS98resizer-e {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 6px;
+  cursor: e-resize;
+}
+
+.JS98resizer-s {
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  height: 6px;
+  cursor: s-resize;
+}
+
+.JS98resizer-w {
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 6px;
+  cursor: w-resize;
+}
+
+.JS98resizer-ne {
+  top: 0px;
+  right: 0px;
+  width: 6px;
+  height: 6px;
+  cursor: ne-resize;
+}
+
+.JS98resizer-se {
+  right: 0px;
+  bottom: 0px;
+  width: 6px;
+  height: 6px;
+  cursor: se-resize;
+}
+
+.JS98resizer-sw {
+  left: 0px;
+  bottom: 0px;
+  width: 6px;
+  height: 6px;
+  cursor: sw-resize;
+}
+
+.JS98resizer-nw {
+  top: 0px;
+  left: 0px;
+  width: 6px;
+  height: 6px;
+  cursor: nw-resize;
+}
+
+.contextmenu {
+  color: black;
+  background-color: silver;
+  width: 200px;
+  border-top: solid 1px white;
+  border-left: solid 1px white;
+  border-bottom: solid 1px grey;
+  border-right: solid 1px grey;
+  box-shadow: 0 1px black, 1px 0 black, 1px 1px black;
+  z-index: 99;
+}
+
+.contextmenu .item{
+  cursor: pointer;
+}
+
+.contextmenu span{
+  height: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.contextmenu img{
+  margin-left: 5px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  margin-top: 2px;
+}
+
+.contextmenu .item:hover{
+  background-color: rgb(0, 156, 255);
+  color: white;
+}
+
+.JS98window .terminal{
+  color: rgb(0, 255, 0);
+  position: absolute;
+  width: calc(100% - 5px);
+  height: calc(100% - 26px);
+  border-width: 1px;
+  
+  background-color: rgba(0, 15, 0, 0.86);
+  border-top: solid 1px grey;
+  border-left: solid 1px grey;
+  border-bottom: solid 1px white;
+  border-right: solid 1px white;
+  
+  overflow: auto;
+}
+
+.JS98window .terminal span {
+  float: left;
+}
+
+.terminal textarea{
+  background: transparent;
+  height: 15px;
+  padding: 0px;
+  color: rgb(0, 255, 0);
+  font-family: inherit;
+  font-size: inherit;
+  resize: none;
+  border: none;
+  margin-left: 1px;
+  overflow: hidden;  
+  width:calc(100% - 112px);
+}
+
+.terminal textarea:focus{
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0);
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: silver;
+  border-top: solid 1px white;
+  border-left: solid 1px white;
+  border-bottom: solid 1px black;
+  border-right: solid 1px black;
+  box-shadow: inset -1px -1px grey
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: silver;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-bottom: solid 1px rgb(220, 220, 220);
+  border-right: solid 1px rgb(220, 220, 220);
+  box-shadow: inset 1px 1px grey, 0 1px white, 1px 0 white, 1px 1px white;
+}

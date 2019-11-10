@@ -1,0 +1,7 @@
+node_modules/
+index.js
+index.html
+package-lock.json
+package.json
+style_old.css
+*.code-workspace
