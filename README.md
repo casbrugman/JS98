@@ -1,7 +1,7 @@
 ![logo](https://raw.githubusercontent.com/cbarsugman/JS98/master/logo.png)
 
 
-JS98 is a plain TypeScript/JavaScript + CSS library for making interactive Windows 98 like enivornments in the browser.
+JS98 is a plain TypeScript/JavaScript + CSS library for making interactive Windows 98 like environments in the browser.
 
 ## Features
 * Desktop Icons which can by default moved and activated in a Windows like fashion.
@@ -17,7 +17,7 @@ JS98 is a plain TypeScript/JavaScript + CSS library for making interactive Windo
 5. Add a tag element to your index.html file and set the src to the 98.js file.
 6. After that create a new script element in which you can use the classes provided.
 
-> If you use TypeScipt you can use the 98.ts file in the /source folder
+> If you use TypeScript you can use the 98.ts file in the /source folder
 
 ```HTML
 <!DOCTYPE html>
