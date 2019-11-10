@@ -106,7 +106,8 @@ namespace JS98
             start: Vector2
             state: mouseStates,
         }
-        keyboard = new JS98.Keyboard()
+
+        private keyboard = new JS98.Keyboard()
 
         constructor(parent: HTMLElement)
         {
@@ -136,7 +137,7 @@ namespace JS98
 
 
         //eventlisteners
-        OnDown(event: MouseEvent)
+        private OnDown(event: MouseEvent)
         {
             this.mouse.start = new Vector2(event.clientX, event.clientY)
 
@@ -177,7 +178,7 @@ namespace JS98
 
         }
 
-        OnUp(event: Event)
+        private OnUp(event: Event)
         {
             if (this.mouse.state == mouseStates.grab_start || this.mouse.state == mouseStates.drag_start)
             {
@@ -232,7 +233,7 @@ namespace JS98
             this.mouse.state = mouseStates.none
         }
 
-        OnMouseMove(event: MouseEvent)
+        private OnMouseMove(event: MouseEvent)
         {
 
             this.ctx.clearRect(0, 0, this.element.clientWidth, this.element.clientHeight)
@@ -958,7 +959,7 @@ namespace JS98
             this.title = title
         }
 
-        SetContent(content: any)
+        SetContent(content: HTMLElement)
         {
             this.content = content
         }
