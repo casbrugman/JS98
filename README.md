@@ -84,10 +84,10 @@ See the documentation for all other parameters.
 | IconLayer   | iconLayer   |
 | WindowLayer | windowLayer |
 #### Methods
-| Return type | Name                             |
-| ----------- | -------------------------------- |
-| void        | Add(Icon icon,Window window)     |
-| void        | Remove(Icon icon, Window window) |
+| Return type | Name                              |
+| ----------- | --------------------------------- |
+| void        | Add(Icon icon / Window window)    |
+| void        | Remove(Icon icon / Window window) |
 
 ### IconLayer
 #### Properties
