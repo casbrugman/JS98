@@ -62,7 +62,7 @@ icon.action = function ()
     window.position = new JS98.Vector2(100, 100)
     let content = document.createElement("div")
     content.innerHTML = "Insert HTML here"
-    window.content = document.createElement("div")
+    window.content = content
     window.title = "Insert window title here"
     window.icon = "Insert img src here"
     desktop.Add(window)
